@@ -17,6 +17,7 @@ body {
 }
 
 .auth-container {
+  width: 90%;
   max-width: 400px;
   margin: 100px auto;
   padding: 2rem;
@@ -24,6 +25,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   text-align: center;
+  box-sizing: border-box;
 }
 
 .auth-form {
@@ -36,6 +38,8 @@ input, select {
   padding: 0.75rem;
   border: 1px solid var(--border-color);
   border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 button {
@@ -60,9 +64,11 @@ button:disabled {
 }
 
 .dashboard {
+  width: 95%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 header {
@@ -72,6 +78,15 @@ header {
   border-bottom: 2px solid var(--border-color);
   padding-bottom: 1rem;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .controls {
@@ -79,6 +94,14 @@ header {
   display: flex;
   gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .error {
@@ -88,9 +111,15 @@ header {
 
 .seat-grid {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
   gap: 0.5rem;
   margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .seat-grid {
+    grid-template-columns: repeat(10, 1fr);
+  }
 }
 
 .seat {
@@ -102,6 +131,7 @@ header {
   justify-content: center;
   font-weight: bold;
   cursor: pointer;
+  width: 100%;
 }
 
 .available { background-color: var(--seat-available); color: white; }

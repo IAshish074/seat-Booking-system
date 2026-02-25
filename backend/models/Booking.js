@@ -7,7 +7,7 @@ const bookingSchema = new mongoose.Schema({
     batch: { type: Number, required: true }
 });
 
-// Ensure a user can only book once per date, and a seat can only be booked once per date
+
 bookingSchema.index({ date: 1, seatNumber: 1 }, { unique: true });
 bookingSchema.index({ date: 1, user: 1 }, { unique: true });
 
